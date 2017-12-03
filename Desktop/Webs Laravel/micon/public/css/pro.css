@@ -1,0 +1,9 @@
+.bgimg {
+    background-image:url("https://images.unsplash.com/photo-1504814532849-cff240bbc503?auto=format&fit=crop&w=668&q=60&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+    min-height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+.op{
+background:rgba(80,80,80,0.5);
+}
