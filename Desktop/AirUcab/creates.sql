@@ -1,20 +1,20 @@
 create table Zona
   (
-  id_zona serial not null,
+  id_zona serial primary key,
   nombre_zona varchar(20) not null,
   ubicacion_zona varchar(20) not null,
-  cod_sede integer not null,
+  cod_sede integer not null
 );
 create table Lugar
   (
-    id_lugar serial not null,
+    id_lugar serial primary key,
     nombre_lugar varchar(20) not null,
     tipo_lugar varchar(2) not null,
     lugar_per integer
   );
 create table Beneficiario
   (
-    id_bene serial not null,
+    id_bene serial primary key,
     nombre_bene varchar(20) not null,
     apelldido_bene varchar(20) not null,
     id_lugar integer not null,
@@ -22,23 +22,23 @@ create table Beneficiario
   );
 create table Correo
   (
-    mail varchar (30) not null,
+    mail varchar (30) primary key,
     id_cliente integer not null
   );
 create table Web
   (
-  url varchar(30) not null,
+  url varchar(30) primary key,
   id_proveedor integer not null
 );
 create table Red_social
   (
-    plataforma varchar(20) not null,
-    user varchar(20) not null,
+    plataforma varchar(20) primary key,
+    usuario varchar(20) not null,
     cod_personal integer not null
   );
 create table Personal
   (
-      id_personal serial not null,
+      id_personal serial primary key,
       nombre_personal varchar(20) not null,
       apellido_personal varchar(20) not null,
       nombre2_personal varchar(20),
@@ -50,20 +50,20 @@ create table Personal
   );
 create table Rol
   (
-    id_rol serial not null,
+    id_rol serial primary key,
     nombre_rol varchar(20) not null
   );
 create table Usuario
   (
-    id_usuario serial not null,
+    id_usuario serial primary key,
     usuario varchar not null,
     pass varchar(20) not null,
     cod_rol integer not null
   );
 create table Privilegio
   (
-    id_privilegio serial,
-    nombre_privilegio serial,
+    id_privilegio serial primary key,
+    nombre_privilegio serial
 
   );
 create table Solicitud
@@ -113,7 +113,7 @@ create table Avion(
 create table Orden_compra(
   id_orden serial primary key,
   fecha date not null,
-  observ varchar(80)
+  observ varchar(80),
   id_proveedor integer not null,
   cod_material integer not null
 );
@@ -128,15 +128,16 @@ create table Sede(
 );
 create table Equipo
   (
-    cod_equipo serial primary key
+    cod_equipo serial primary key,
     cod_personal integer not null,
     id_zona integer not null
 
   );
 create table Telefono
   (
-    cod_area integer primary key,
-    numerotelf integer primary key,
+  cod_telf serial primary key,
+    cod_area integer not null,
+    numerotelf integer not null,
     cod_personal integer not null,
     id_proveedor integer not null,
     id_bene integer not null,
@@ -156,7 +157,7 @@ create table Proveedor_Material
   );
 create table Pago
     (
-      id_pago primary key,
+      id_pago serial primary key,
       monto numeric(10,2),
       id_orden integer not null,
       id_tipopago integer not null
@@ -169,7 +170,7 @@ create table Ensam_Pieza
     cod_pieza integer not null,
     cod_equipo integer not null
 
-  )
+  );
 create table Tipo_Pago
   (
   id_tipopago serial primary key,
@@ -180,7 +181,7 @@ create table Tipo_Pago
   tipotdc varchar(20),
   cod_seg integer,
   titular_cheque integer,
-  nrotrans integer
+  nrotrans integer,
   banco varchar(40),
   titular_transf varchar(40)
   );
@@ -249,8 +250,8 @@ create table Estatus_Pieza
   );
 create table Pieza_Pieza
     (
-      Usada_pieza integer not null,
-      Generada_pieza integer not null
+      usada_pieza integer not null,
+      generada_pieza integer not null
     );
 create table Modelo_Pieza
       (
